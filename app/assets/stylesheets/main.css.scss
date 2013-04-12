@@ -1,0 +1,210 @@
+// Place all the styles related to the main controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.clearfix {
+	zoom:1;
+	&:before, &:after {
+		content:"\0020";
+		display:block;
+		height:0;
+		overflow:hidden;
+	}
+	&:after {
+		clear:both;
+	}
+}
+
+$main_width:90%;
+$label_width:80px;
+$text_width:300px;
+$text_short_width:120px;
+$menu_title_width:100px;
+
+body {
+	margin:0;
+}
+
+.header {
+	font-family:"monospace";
+		
+	.dashboard {
+		text-align:right;
+		font-size:11px;
+		padding:20px 20px 5px;
+		background:#232323;
+
+		a {
+			margin:0 5px;
+			font-size:11px;
+			//font-weight:bold;
+			color:#FFF;
+			text-decoration:none;
+			&.left_space {
+			}
+			&:hover {  
+				color:#DDD;
+			}
+		}
+	}
+
+	a.logo {
+		padding:8px 0 0 20px;
+		float:left;
+		font-size:22px;
+		font-weight:bold;
+		text-decoration:none;
+		color:#FFF;
+		&:hover {  
+			color:#DDD;
+		}
+	} 
+}
+
+.flash_messages {
+	position:absolute;
+	margin:5px 0 0 220px;
+	font-size:11px;
+	color:red;
+}
+
+.section {
+	width:$main_width;
+	margin:0 auto 150px;
+	font-family:"Dotum", "돋움", "sanserif";
+	font-size:12px;
+	a {
+		color:#777;
+		text-decoration:none;
+	}
+	label {
+		float:left;
+		width:$label_width;
+	}
+	form {
+		.field {
+			line-height:150%;
+			@extend .crearfix;
+			margin-top:10px;
+			input.text {
+				border:1px solid #777;
+				font-size:12px;
+				width:$text_short_width;
+				&.long {
+					width:80%;
+				}
+			}
+			textarea.text {
+				border:1px solid #777;
+				font-size:12px;
+				line-height:150%;
+				padding:5px 10px;	
+				width:$text_width;
+				&.long {
+					width:85%;
+				}
+				height:400px;
+			}
+			input {
+				font-size:11px;
+			}
+		}
+
+		.actions {
+			margin-top:10px;
+			input.submit {
+				font-size:12px;
+				margin-left:$label_width;
+				border:1px solid #777;
+				padding:3px 5px;
+			}
+		}
+	}
+	.paging {
+		text-align:center;
+	}
+	.menu_title {
+		margin:0 0 20px;
+		padding:3px 3px;
+		font-size:12px;
+		width:$menu_title_width;
+		text-align:center;
+		background:#AAA;
+		color:#FFF;
+	}
+	.error_messages {
+		color:red;
+	}
+	.post_actions {
+		margin:0 15px 0 15px;
+		padding:0;
+		&.index {
+			//text-align:right;
+		}
+	}
+	.post_wrapper {
+		margin:5px 0;
+		&.index {
+			margin:25px 0 1px;
+		}
+		padding:5px;
+		border:solid 1px #aaa;
+		.post_title {
+			color:#444;
+			font-weight:bold;
+			font-size:18px;
+			margin:5px;
+			padding:5px;
+			a {
+				color:#444;
+				text-decoration:none;
+			}
+		}
+		.user_name {
+			font-family:"monospace";
+			font-size:11px;
+			color:#777;
+		}
+		.post_date {
+			font-size:10px;
+			float:right;
+			margin:5px;
+			padding:5px;
+		}
+		.post_content {
+			color:#444;
+			border-top:dotted 1px #777;
+			padding:5px;
+			margin:3px 5px 5px;
+			line-height:150%;
+		}
+		.files {
+			border-top:1px dotted #ccc;
+			padding-top:3px;
+			padding-left:10px;
+			text-align:left;
+			a {
+				&:hover {
+					text-decoration:underline;
+				}
+			}
+		}
+	}
+}
+.footer {
+  a#header_link {
+    position:fixed;
+    display:scroll;
+    bottom:40px;
+    right:0;
+    background:#fd9242;
+    color:#000;
+    font-weight:bold;
+    font-size:12px;
+    padding:5px 15px;
+    text-decoration:none;
+    border:1px solid #ec8131;
+    opacity:0.7;
+	}
+}
+

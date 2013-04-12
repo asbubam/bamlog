@@ -1,0 +1,13 @@
+<div class="menu_title">User Info</div>
+
+<div class="text">
+	<label>id</label>
+	<%= @user.login %>
+</div>
+
+<div class="text">
+	<label>name</label>
+	<%= @user.name %>
+</div>
+
+<%= link_to "Edit", edit_user_path(@user) %>

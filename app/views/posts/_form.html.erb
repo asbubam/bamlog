@@ -1,0 +1,32 @@
+<% if @post.errors.messages.any? %>
+	<div class="error_messages">
+		<%= @post.errors.full_messages %>
+	</div>
+<% end %>
+
+<%= form_for @post do |f| %>
+	<div class="field">
+		<%= f.label :title, "title" %>
+		<%= f.text_field :title, :class => 'text long focus' %>
+	</div>
+	
+	<div class="field">
+		<%= f.label :content, "content" %>
+		<%= f.text_area :content, :class => 'text long', :rows => 10, :cols => 60 %>
+	</div>
+
+	<div class="field">
+		<%= f.label :asset, "file #1" %>
+		<%= f.file_field :asset %>
+	</div>
+
+	<div class="field">
+		<%= f.label :asset2, "file #2" %>
+		<%= f.file_field :asset2 %>
+	</div>
+
+	<div class="actions">
+		<%= f.submit("submit", :class => "submit") %>
+		<%= link_to "Back", root_path %>
+	</div>
+<% end %>

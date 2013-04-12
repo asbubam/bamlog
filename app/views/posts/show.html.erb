@@ -1,0 +1,42 @@
+<div class="menu_title">Show Post</div>
+
+<div class="post_actions">
+	<%= link_to "Edit", edit_post_path(@post) %>
+	<%= link_to "Del", post_path(@post), :method => :delete, :confirm => "Are you sure?" %>
+	<%= link_to "Home", root_path %>
+</div>	
+
+<div class="post_wrapper">
+	<span class="post_title">
+		<%= @post.title %>
+	</span>
+	
+	<span class="user_name">
+		by <%= @post.user.name %>
+	</span>
+
+	<span class="post_date">
+		<%= ymd(@post.created_at) %>
+	</span>
+
+	<div class="post_content">
+		<%#=	nl2br(@post.content).html_safe %>
+		<%= nl2br(coderay(@post.content)).html_safe %>
+	</div>
+	
+	<% if @post.asset? || @post.asset2? %>
+		<div class="files">
+			<%= link_to @post.asset_file_name, download_post_path(@post) if @post.asset? %>
+			<% if @post.asset? && @post.asset2? %>
+				&nbsp;|&nbsp;
+			<% end %>
+			<%= link_to @post.asset2_file_name, download2_post_path(@post) if @post.asset2? %>
+		</div>
+	<% end %>
+</div>
+
+<div class="post_actions bottom">
+	<%= link_to "Edit", edit_post_path(@post) %>
+	<%= link_to "Del", post_path(@post), :method => :delete, :confirm => "Are you sure?" %>
+	<%= link_to "Home", root_path %>
+</div>	

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= "#{SiteName}" %></title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="initial-scale=1.0; user-scalable=no; minimum-scale=1.0; maximum-scale=1.0" /> 
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+</head>
+<body>
+	<script type="text/javascript">
+
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-34650870-1']);
+	  _gaq.push(['_trackPageview']);
+
+	  (function() {
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+
+
+		jQuery(function() {
+			var target = $(".focus").first();
+
+			target.focus(function(event) {
+				setTimeout(function() {
+					$(this).select();
+				}, 100);
+			});
+
+			if(target) target.focus();
+		});
+	</script>
+
+	<div class="header" id="header">
+		<%= link_to "#{SiteName}", root_path, :class => "logo" %>
+		<div class="dashboard">
+			<% if logged_in? %>
+				<%= link_to "new post", new_post_path %>
+				<%= link_to @current_user.name, user_path(@current_user) %>
+				<%= link_to "logout", logout_path %>
+			<% else %>
+				<%= link_to "login", login_path %>
+				<%= link_to "signin", new_user_path %>
+			<% end %>
+		</div>
+	</div>
+	
+	<div class="flash_messages">
+		<%= flash_messages %>	
+	</div>
+
+
+	<div class="section">
+		<%= yield %>
+	</div>
+
+	<div class="footer">
+		<a id="header_link" style="display:none" href="#header">TOP</a>
+	</div>
+
+  <script type="text/javascript">
+    document.addEventListener("touchmove", touchMove, false);
+    document.addEventListener("scroll", scroll, false);
+    
+    function touchMove(event) {
+      $("#header_link").show(); 
+    };
+
+    function scroll(event) {
+      if(window.pageYOffset == 0) {
+				$("#header_link").hide();		
+			} else {
+      	$("#header_link").show(); 
+			}
+    };
+  </script>
+	
+</body>
+</html>

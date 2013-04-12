@@ -1,0 +1,18 @@
+<div class="menu_title">Login</div>
+<%= form_for :user, :url => signin_path do |f| %>
+	<div class="field">
+		<%= f.label :login, "id" %>
+		<%= f.text_field :login, :class => 'text short focus' %>
+	</div>
+
+	<div class="field">
+		<%= f.label :password, "pw" %>
+		<%= f.password_field :password, :class => 'text short' %>
+	</div>
+
+
+	<div class="actions">
+		<%= f.submit("Login", :class => "submit") %>
+		<%= link_to "Back", root_path %>
+	</div>
+<% end %>
